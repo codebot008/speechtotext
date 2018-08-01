@@ -6,6 +6,7 @@ speech_to_text = SpeechToTextV1(
     username='1399815f-4149-4ec7-8d8d-6d1547cd18e2',
     password='arkTnALuWMsy')
 
+
 def createLangModel():
     language_model = speech_to_text.create_language_model(
         'New language model',
@@ -17,7 +18,7 @@ def createLangModel():
 def addCorpus(cust_id, corpus_file):
     print("In add corpus")
     # cust_id = '2497fdbf-b531-4eb3-bc83-8a8572f1fa81'
-    speech_to_text.add_corpus(cust_id, 'corpus_file3', corpus_file)
+    speech_to_text.add_corpus(cust_id, 'corpus_file5', corpus_file)
 
 def trainLangModel(cust_id):
     print("In train model")
@@ -38,13 +39,14 @@ def getAllLanguageModels():
     print(json.dumps(language_models, indent=2))
 
 def main():
+    # addCorpus('c98e5964-574b-44f2-8022-77158863be65', 'corpus_files/corpus3.txt')
     # customiseLangModel('corpus1.txt')
     # print(speech_to_text.delete_language_model('75c07ea9-8089-4821-a072-e8caf6d445f6'))
     # getAllLanguageModels()
     # speech_to_text.add_corpus('c98e5964-574b-44f2-8022-77158863be65', 'new_corpus', 'corpus1.txt')
     # speech_to_text.train_language_model('c98e5964-574b-44f2-8022-77158863be65')
     while(True):
-        time.sleep(3)
+        time.sleep(1)
         getAllLanguageModels()
 
 if __name__ == '__main__':

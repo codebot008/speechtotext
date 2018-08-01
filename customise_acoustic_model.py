@@ -16,7 +16,7 @@ def createAcousticModel():
     return (acoustic_model["customization_id"])
 
 def addAudio(cust_id, audio_dir):
-    speech_to_text.add_audio(customization_id=cust_id, audio_name='new_audio', audio_resource=audio_dir, content_type='audio/wav')
+    # speech_to_text.add_audio(customization_id=cust_id, audio_name='new_audio1', audio_resource=audio_dir, content_type='audio/wav')
     # print("In add audio")
     # i = 1
     # path = '/Users/ankitjena/PycharmProjects/Speech2Text/audio_files'
@@ -30,14 +30,14 @@ def addAudio(cust_id, audio_dir):
     #     f.close()
     #     print('Progress: ' + str(round(((i / len(files))) * 100, 2)) + "%")
     #     i = i + 1
-    # speech_to_text.add_audio(customization_id=cust_id, audio_name="new_audio", audio_resource=audio_dir, content_type='application/zip', contained_content_type='audio/wav', allow_overwrite=True)
+    speech_to_text.add_audio(customization_id=cust_id, audio_name="new_audio_3", audio_resource=audio_dir, content_type='application/zip', contained_content_type='audio/wav', allow_overwrite=True)
 
 def deleteAudio(cust_id):
     all_audio = speech_to_text.list_audio(cust_id)["audio"]
     for x in all_audio:
         name = x['name']
         speech_to_text.delete_audio(cust_id, name)
-        print('Deleted' + name)
+        print('Deleted ' + name)
 
 def trainAcousticModel(cust_id):
     speech_to_text.train_acoustic_model(cust_id)
@@ -63,15 +63,21 @@ def getAllAcousticModels():
     # print(json.dumps(acoustic_models, indent=2))
 
 def main():
-    # addAudio('26081e44-d2e8-429c-af7d-e3269caeec38', 'audio_files/audio_1.wav')
+    # deleteAudio('26081e44-d2e8-429c-af7d-e3269caeec38')
+    # with open('audio_files.zip', 'rb') as audio_file:
+    #     addAudio('26081e44-d2e8-429c-af7d-e3269caeec38', audio_file)
+    #     speech_to_text.add_audio(
+    #         '26081e44-d2e8-429c-af7d-e3269caeec38',
+    #         'audio2',
+    #         audio_file,
+    #         'audio/wav')
     # cust_id = createAcousticModel()
     # status = 'pending'
     # while(status == 'pending'):
     #     time.sleep(3)
     #     status = getAllAcousticModels()
     # addAudio('26081e44-d2e8-429c-af7d-e3269caeec38', 'audio_files')
-    # speech_to_text.train_acoustic_model('26081e44-d2e8-429c-af7d-e3269caeec38')
-    # deleteAudio('26081e44-d2e8-429c-af7d-e3269caeec38')
+    speech_to_text.train_acoustic_model('26081e44-d2e8-429c-af7d-e3269caeec38')
     # speech_to_text.add_audio('26081e44-d2e8-429c-af7d-e3269caeec38', 'audio_files/audio_1.wav')
 
 if __name__ == '__main__':

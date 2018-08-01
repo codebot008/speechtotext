@@ -15,6 +15,15 @@ speech_to_text = SpeechToTextV1(
 
 # speech_to_text.delete_audio('26081e44-d2e8-429c-af7d-e3269caeec38', 'audio_2')
 # print(json.dumps(speech_to_text.list_acoustic_models(), indent = 2))
-print(json.dumps(speech_to_text.list_audio('26081e44-d2e8-429c-af7d-e3269caeec38'), indent = 2))
+# status = json.dumps(speech_to_text.list_acoustic_models()['customizations'][0]['status'], indent=2)
+# print(status)
+# while status == '"training"':
+#     status = json.dumps(speech_to_text.list_acoustic_models()['customizations'][0]['status'], indent=2)
+# print (status)
+# #     print(status)
+# print(status)
+# while status == 'being_processed':
+#     print(status = speech_to_text.list_audio('26081e44-d2e8-429c-af7d-e3269caeec38')['audio'][0]['status'])
+# print(json.dumps(speech_to_text.list_audio('26081e44-d2e8-429c-af7d-e3269caeec38'), indent = 2))
 # acoustic_models = speech_to_text.list_acoustic_models()
 # print(acoustic_models["customizations"][0]["status"])

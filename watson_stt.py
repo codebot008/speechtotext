@@ -20,7 +20,8 @@ def convert(file):
             audio=audio_file,
             content_type='audio/wav',
             smart_formatting=True)
-    return (speech_recognition_results['results'][0]['alternatives'][0]['transcript'])
+    return speech_recognition_results
+    # return (speech_recognition_results['results'][0]['alternatives'][0]['transcript'])
 
 def stt():
     aud_recorder  = audio_recorder.AudioRecorder()
@@ -29,6 +30,8 @@ def stt():
     # audiotools.open(audio_file).convert(audio_file_flac, audiotools.FlacAudio)
     textfromspeech = convert(audio_file)
     print(textfromspeech)
+
+#Run a remote registry service on server f3bd9c44dd.
 
 def main():
     stt()
